@@ -93,8 +93,6 @@
 </script> --}}
 
   @include('src.js')
-  <script>
-    alert('Hello');
-  </script>
+
   </body>
 </html>
