@@ -15,9 +15,11 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('post_title');
-            $table->string('post');
+            $table->text('post');
             $table->enum('status',['active','inactive'])->default('active');
-            $table->timestamps();
+            // $table->timestamps();
+            $table->timestamp('created_on')->useCurrent();
+            $table->timestamp('updated_on')->useCurrent()->nullable();
         });
     }
 

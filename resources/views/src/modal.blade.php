@@ -10,7 +10,7 @@
         <div class="modal-body">
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Post Title</label>
-                <input type="email" class="form-control" id="post_title" placeholder="Enter post title" required>
+                <input type="text" class="form-control" id="post_title" placeholder="Enter post title" required>
               </div>
               <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Post</label>
@@ -25,3 +25,34 @@
       </div>
     </div>
   </div>
+
+  {{-- edit modal --}}
+  <div class="modal fade" id="updatemodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Post</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Post Title</label>
+                <input type="text" class="form-control" name="eidt_post_title" id="eidt_post_title" placeholder="Enter post title" required>
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Post</label>
+                <br>
+                <textarea class="form-control" name="edit_post" id="edit_post" cols="40" placeholder="Write post here" required ></textarea>
+              </div>
+        </div>
+        <div class="modal-footer">
+          <input type="hidden" id="id" value="">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit"  class="btn btn-success" onclick="updatepost()">Post</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+

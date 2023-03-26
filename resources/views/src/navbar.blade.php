@@ -39,11 +39,12 @@
             </a>
             @if (Auth::user())
             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+              <li><a class="dropdown-item"  href="{{route('dashboard')}}"><i class="fa-sharp fa-solid fa-clipboard"></i> Dashboard</a></li>
               <li>
                 <form action="{{route('logout')}}" method="post">
                 @csrf
                 
-                  <button class="dropdown-item" ><i class="fa-sharp fa-solid fa-arrow-right"></i>Logout</button>
+                  <button class="dropdown-item" ><i class="fa-sharp fa-solid fa-arrow-right"></i> Logout</button>
                 </form>
               </li>
 

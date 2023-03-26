@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\post\PostController;
+use App\Http\Controllers\DashBoardController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\user\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,10 +30,23 @@ Route::get('/', function () {
 
 
 
-Route::post('/add/post',[PostController::class, 'AddPost']);
 Route::middleware('auth')->group(function(){
-
     Route::get('/index', [HomeController::class, 'index'])->name('index');
+    Route::post('/add/post',[PostController::class, 'AddPost']);
+    Route::get('/get/post/data',[PostController::class,'GetAllPost']);
+    Route::get('/get/post/{id}',[PostController::class,'getPost']);
+    Route::post('/post/update',[PostController::class,'updatePost']);
+    Route::post('/post/delete/{id}',[PostController::class,'DeletePost']);
+
+    Route::post('/user/update', [UserController::class,'userUpdate'])->name('user_update');
+
+
+    Route::controller(DashBoardController::class)->group(function(){
+        Route::get('/dashboard','dashboard')->name('dashboard');
+    });
+
+
+
 });
 
 

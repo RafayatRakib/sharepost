@@ -31,12 +31,35 @@ class PostController extends Controller
             $post->save();
 
             return response()->json(['success'=> 'Post added successfuly']);
-        // if($post){
+    }//end method
 
-        // }else{
-        //     return response()->json(['error'=> 'somthing is wrong']);
 
-        // }
+    public function GetAllPost(){
+        $post =  Post::with('user')->where('status', 'active')->inRandomOrder()->limit(10)->get();
+        return response()->json(['post' => $post]);
+        // <img src="{{ $value->user->photo != NULL ? asset($value->user->photo) : asset('/uploads/no_image_avatar.png') }}" class="img-thumbnail rounded" style="width: 50px; height: 25px;" alt="..." />
+    }//end method 
+
+
+    public function getPost($id){
+        $post =  Post::findOrFail($id);
+        return response()->json(['post' => $post]);
+    }//end method
+
+    public function updatePost(Request $request){
+        $id =  $request->id;
+        $post = Post::findOrFail($id);
+        $post->post_title =$request->post_title;
+        $post->post =$request->post;
+        $post->updated_at = Carbon::now();
+        $post->update();
+
+        return response()->json(['success'=> 'Post update successfuly']);
+    }//end method
+
+    public function DeletePost($id){
+        Post::findOrFail($id)->delete();
+        return response()->json(['success'=> 'Post deleted successfuly']);
 
     }//end method
 }
