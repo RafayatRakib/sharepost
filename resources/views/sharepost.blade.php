@@ -25,7 +25,14 @@
     @yield('content')
 
 
+    <footer>
+      <div class="text-center">
 
+        {{-- {{ link_to('https://www.facebook.com', 'Rafayat Rakib', ['target' => '_blank']) }} --}}
+
+        <p> @Copyright by <a class="" target="_blank" style="text-decoration: none" href="https://www.facebook.com">Rafayat Rakib</a></p>
+      </div>
+    </footer>
     <!-- Option 1: Bootstrap Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" ></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ionicons/7.1.0/esm/ionicons.min.js" ></script>
